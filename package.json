@@ -1,0 +1,13 @@
+{
+  "name": "referral-account-manager-pwa",
+  "version": "1.0.0",
+  "description": "A Progressive Web App for managing referral accounts.",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo "No start script defined, serve index.html" && exit 1",
+    "build": "echo "No build step required, files are static." && exit 0"
+  },
+  "author": "Your Name",
+  "license": "UNLICENSED",
+  "private": true
+}
