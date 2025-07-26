@@ -249,12 +249,6 @@ function renderAccountManagement(primaryAccount) {
     displayFullHierarchy();
     updateSlotSuggestions();
 
-const exportButton = document.createElement('button');
-exportButton.textContent = 'Export All Accounts to CSV';
-exportButton.style.marginTop = '20px';
-exportButton.onclick = exportDataToCSV;
-accountManagementDiv.appendChild(exportButton);
-    
     // Attach event listeners after the innerHTML is set
     document.getElementById('exportCsvButton').onclick = exportDataToCSV;
     document.getElementById('resetPrimaryAccount').addEventListener('click', () => {
