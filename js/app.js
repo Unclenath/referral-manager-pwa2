@@ -1,39 +1,106 @@
-// Service Worker Registration
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
-            .then(registration => {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            })
-            .catch(error => {
-                console.log('ServiceWorker registration failed: ', error);
-            });
-    });
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-const PRIMARY_ACCOUNT_KEY = 'primaryAccount';
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const appContainer = document.getElementById('app');
-    
-    // Simple check for a "logged in" state. For now, always "logged in".
-    // In a real scenario, this would involve checking a token or session.
-    const isLoggedIn = true; // Placeholder - always true for now
+header h1 {
+    margin: 0;
+}
 
-    if (isLoggedIn) {
-        const primaryAccountSetupDiv = document.createElement('div');
-        primaryAccountSetupDiv.id = 'primary-account-setup';
+main {
+    padding: 1em;
+    text-align: center;
+}
 
-        const accountManagementDiv = document.createElement('div');
-        accountManagementDiv.id = 'account-management';
+footer {
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+}
 
-        appContainer.appendChild(primaryAccountSetupDiv);
-        appContainer.appendChild(accountManagementDiv);
-        renderCurrentState(); // Proceed to primary account check or management view
-    } else {
-        renderLoginPlaceholder(appContainer);
-    }
-});
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    padding: 10px;
+    margin: 5px 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px); /* Account for padding and border */
+    box-sizing: border-box;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+#account-display {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+ul#account-tree {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul#account-tree ul {
+    padding-left: 20px; /* Indentation for children */
+    border-left: 1px dashed #ccc;
+    margin-left: 10px;
+}
+
+ul#account-tree li {
+    margin: 5px 0;
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.add-child-btn {
+    margin-left: 10px;
+    padding: 3px 8px;
+    font-size: 0.8em;
+}
+
 
 function renderLoginPlaceholder(container) {
     container.innerHTML = `
