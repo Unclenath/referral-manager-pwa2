@@ -2,7 +2,7 @@
     "name": "Referral Account Manager",
     "short_name": "ReferralMgr",
     "description": "A PWA to manage referral accounts with infinite hierarchy.",
-    "start_url": "/referral-manager-pwa2",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#007bff",
@@ -49,3 +49,4 @@
         }
     ]
 }
+
