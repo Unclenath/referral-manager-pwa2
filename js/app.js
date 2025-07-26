@@ -236,30 +236,7 @@ function renderAccountManagement(primaryAccount) {
             <ul id="account-tree"></ul>
         </div>
         <div id="slot-suggestion-container" style="margin-top: 15px; padding: 10px; background-color: #eef; border-radius: 5px;">
-            <!-- Suggestions for next available slots will appear here -->
-        </div>
-        <div id="add-child-form-container">
-            <!-- Form for adding a child will be injected here -->
-        </div>
-        <div style="margin-top: 20px;">
-             <button id="exportCsvButton">Export All Accounts to CSV</button>
-        </div>
-    `;
-    
-    displayFullHierarchy();
-    updateSlotSuggestions();
 
-    // Attach event listeners after the innerHTML is set
-    document.getElementById('exportCsvButton').onclick = exportDataToCSV;
-    document.getElementById('resetPrimaryAccount').addEventListener('click', () => {
-        if (confirm('Are you sure you want to reset the primary account? This will clear all account data.')) {
-            localStorage.removeItem(PRIMARY_ACCOUNT_KEY);
-            localStorage.removeItem('accountTree');
-            renderCurrentState();
-            alert('Primary Account and all data have been reset.');
-        }
-    });
-}
 
 function clearAccountManagement() {
     const accountManagementDiv = document.getElementById('account-management');
